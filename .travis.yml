@@ -9,8 +9,9 @@ matrix:
   fast_finish: true
 script:
   - yarn build
-
-# Automatically deploy every commit on `master` using deploy script
+cache:
+  directories:
+    - node_modules
 deploy:
   skip_cleanup: true
   provider: script
