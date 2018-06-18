@@ -14,9 +14,6 @@ git config user.email "developer+travis@nomadeducation.fr"
 git add --force index.html bundle.js css/
 git commit -m "Deploy to GitHub Pages: ${SHA}"
 
-# Get the deploy key by using Travis's stored variables to decrypt deploy_key.enc
-# the following line is the result of running `travis encrypt-file `deploy_key`
-openssl aes-256-cbc -K $encrypted_52dc1a81cfeb_key -iv $encrypted_52dc1a81cfeb_iv -in deploy_key.enc -out deploy_key -d
 chmod 600 deploy_key
 eval `ssh-agent -s`
 ssh-add deploy_key
