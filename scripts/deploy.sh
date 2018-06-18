@@ -11,7 +11,7 @@ git init
 git config user.name "Travis CI"
 git config user.email "developer+travis@nomadeducation.fr"
 
-git add index.html bundle.js css/
+git add --force index.html bundle.js css/
 git commit -m "Deploy to GitHub Pages: ${SHA}"
 
 # Get the deploy key by using Travis's stored variables to decrypt deploy_key.enc
