@@ -1,0 +1,19 @@
+# see https://docs.travis-ci.com/user/languages/javascript-with-nodejs/
+language: node_js
+node_js:
+  - 8
+branches:
+  only:
+    - master
+matrix:
+  fast_finish: true
+script:
+  - yarn build
+
+# Automatically deploy every commit on `master` using deploy script
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: ./scripts/deploy.sh
+  on:
+    branch: master
