@@ -304,6 +304,10 @@ a.quiet.dark.active, a.quiet.dark:hover { color:rgba(255,255,255,0.5); }
 .button.fill-orange:hover {
   background-color:#ffa286;
   }
+.button.fill-orange-ne.active,
+.button.fill-orange-ne:hover {
+  background-color: #f76321;
+}
 .button.fill-mustard.active,
 .button.fill-mustard:hover {
   background-color:#ffca55;
@@ -703,6 +707,8 @@ a.quiet.dark.active, a.quiet.dark:hover { color:rgba(255,255,255,0.5); }
 .fill-yellow .rounded-toggle .active      { background:#f1f075; }
 .fill-orange .rounded-toggle input[type=radio]:checked + label,
 .fill-orange .rounded-toggle .active      { background:#f9886c; }
+.fill-orange-ne .rounded-toggle input[type=radio]:checked + label,
+.fill-orange-ne .rounded-toggle .active   { background:#f76321; }
 .fill-darkblue .rounded-toggle input[type=radio]:checked + label,
 .fill-darkblue .rounded-toggle .active    { background-color:#223b53; }
 .fill-red .rounded-toggle input[type=radio]:checked + label,
@@ -3037,6 +3043,7 @@ Alternate exists for:
 .fill-green       { background:#56b881; }
 .fill-yellow      { background:#f1f075; }
 .fill-orange      { background:#f9886c; }
+.fill-orange-ne   { background:#f76321; }
 
 .fill-darkblue    { background-color:#223b53; }
 .fill-red         { background-color:#e55e5e; }
