@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+- 8
+branches:
+  only:
+  - master
+matrix:
+  fast_finish: true
+before_install:
+- openssl aes-256-cbc -K $encrypted_52dc1a81cfeb_key -iv $encrypted_52dc1a81cfeb_iv
+  -in deploy_key.enc -out deploy_key -d
+script:
+- yarn build
+cache:
+  directories:
+  - node_modules
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: "./scripts/deploy.sh"
+  on:
+    branch: master
