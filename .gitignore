@@ -4,6 +4,7 @@ index.html
 
 # misc. files
 deploy_key
+deploy_key.pub
 
 # npm
 node_modules/
