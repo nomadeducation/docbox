@@ -4,3 +4,7 @@ index.html
 
 # misc. files
 deploy_key
+
+# npm
+node_modules/
+*.log
