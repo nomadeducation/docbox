@@ -5,13 +5,13 @@ SSH_REPO="git@github.com:nomadeducation/kane-docs-build.git"
 SHA=`git rev-parse --verify HEAD`
 TARGET_BRANCH="master"
 
-echo "deploying changes"
 git init
+git remote add origin $SSH_REPO
 
 git config user.name "Travis CI"
 git config user.email "developer+travis@nomadeducation.fr"
 
-git add --force index.html bundle.js css/
+git add --force CNAME index.html bundle.js css/ images/
 git commit -m "Deploy to GitHub Pages: ${SHA}"
 
 chmod 600 deploy_key
