@@ -304,8 +304,8 @@ a.quiet.dark.active, a.quiet.dark:hover { color:rgba(255,255,255,0.5); }
 .button.fill-orange:hover {
   background-color:#ffa286;
   }
-.button.fill-orange-ne.active,
-.button.fill-orange-ne:hover {
+.button.fill-ne.active,
+.button.fill-ne:hover {
   background-color: #f76321;
 }
 .button.fill-mustard.active,
@@ -707,8 +707,8 @@ a.quiet.dark.active, a.quiet.dark:hover { color:rgba(255,255,255,0.5); }
 .fill-yellow .rounded-toggle .active      { background:#f1f075; }
 .fill-orange .rounded-toggle input[type=radio]:checked + label,
 .fill-orange .rounded-toggle .active      { background:#f9886c; }
-.fill-orange-ne .rounded-toggle input[type=radio]:checked + label,
-.fill-orange-ne .rounded-toggle .active   { background:#f76321; }
+.fill-ne .rounded-toggle input[type=radio]:checked + label,
+.fill-ne .rounded-toggle .active   { background:#f76321; }
 .fill-darkblue .rounded-toggle input[type=radio]:checked + label,
 .fill-darkblue .rounded-toggle .active    { background-color:#223b53; }
 .fill-red .rounded-toggle input[type=radio]:checked + label,
@@ -737,6 +737,11 @@ img {
   }
   .center img,
   img.center { margin-left:auto; margin-right:auto; }
+
+.image-ne {
+  background-image: url("/images/icon_nomad.png");
+  background-size: 30px 30px;
+}
 
 /* images defined with background size -
 placed here so width will be overriden by grid widths*/
@@ -3030,6 +3035,7 @@ Alternate exists for:
 .fill-gray-dark   { background:#404040; }
 .fill-white       { background:#fff; }
 .fill-light       { background:#f8f8f8; }
+.fill-light-ne    { background:#f76321; }
 /* deprecated, use fill-cyan */
 .fill-blue-light  { background:#52a1d8; }
 .fill-cyan        { background:#3bb2d0; }
@@ -3043,7 +3049,7 @@ Alternate exists for:
 .fill-green       { background:#56b881; }
 .fill-yellow      { background:#f1f075; }
 .fill-orange      { background:#f9886c; }
-.fill-orange-ne   { background:#f76321; }
+.fill-ne          { background:#f76321; }
 
 .fill-darkblue    { background-color:#223b53; }
 .fill-red         { background-color:#e55e5e; }
@@ -3060,6 +3066,11 @@ Alternate exists for:
 .fill-lighten1 { background:rgba(255,255,255,0.25); }
 .fill-lighten2 { background:rgba(255,255,255,0.50); }
 .fill-lighten3 { background:rgba(255,255,255,0.75); }
+
+.fill-ne-lighten0 { background:rgba(247,99,33,0.10); }
+.fill-ne-lighten1 { background:rgba(247,99,33,0.20); }
+.fill-ne-lighten2 { background:rgba(247,99,33,0.50); }
+.fill-ne-lighten3 { background:rgba(247,99,33,0.75); }
 
 .mb-logo {
   background:#fff;
