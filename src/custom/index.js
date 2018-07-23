@@ -5,7 +5,7 @@
  * media queries.
  */
 module.exports.brandNames = {
-  desktop: 'Nomad Education API Documentation',
+  desktop: 'Nomad Education API Docs',
   tablet: 'Nomad Education API Docs',
   mobile: 'API Docs'
 };
@@ -13,7 +13,7 @@ module.exports.brandNames = {
 /**
  * Classes that define the top-left brand box.
  */
-module.exports.brandClasses = 'fill-orange-ne';
+module.exports.brandClasses = 'image-ne';
 
 
 /**
