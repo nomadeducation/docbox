@@ -10,7 +10,19 @@ var fs = require('fs');
  * browser: the content is read ahead-of-time and included in bundle.js.
  */
 module.exports =
-  '# Introduction\n' +
-  fs.readFileSync('./content/introduction.md', 'utf8') + '\n' +
-  '# Example\n' +
-  fs.readFileSync('./content/example.md', 'utf8') + '\n';
+    '# Topics\n' +
+    fs.readFileSync('./content/introduction.md', 'utf8') + '\n' +
+    fs.readFileSync('./content/authentication.md', 'utf8') + '\n' +
+    fs.readFileSync('./content/errors.md', 'utf8') + '\n' +
+    fs.readFileSync('./content/pagination.md', 'utf8') + '\n' +
+    fs.readFileSync('./content/filtering.md', 'utf8') + '\n' +
+    fs.readFileSync('./content/request-ids.md', 'utf8') + '\n' +
+    fs.readFileSync('./content/versioning.md', 'utf8') + '\n' +
+    '# Identity Service\n' +
+    fs.readFileSync('./content/users.md', 'utf8') + '\n' +
+    fs.readFileSync('./content/roles.md', 'utf8') + '\n' +
+    fs.readFileSync('./content/permissions.md', 'utf8') + '\n' +
+    '# Business Service\n' +
+    'TODO\n' +
+    '# Content Service\n' +
+    'TODO\n';
