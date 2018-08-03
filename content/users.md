@@ -18,18 +18,10 @@ GET /wobbles/v1/{username} wobbles:read
 $ curl https://wobble.biz/wobbles/v1/{username}
 ```
 
-```bash
-$ wbl wobbles list
-```
-
 ```javascript
 client.listWobbles(function(err, wobbles) {
   console.log(wobbles);
 });
-```
-
-```python
-wobbles.list()
 ```
 
 #### Example response
@@ -65,10 +57,6 @@ POST /wobbles/v1/{username}
 curl -X POST https://wobble.biz/wobbles/v1/{username}
 ```
 
-```bash
-$ wbl wobbles create
-```
-
 ```javascript
 client.createWobble({
   name: 'example',
@@ -76,11 +64,6 @@ client.createWobble({
 }, function(err, wobble) {
   console.log(wobble);
 });
-```
-
-```python
-response = wobbles.create(
-  name='example', description='An example wobble')
 ```
 
 #### Example request body
@@ -126,14 +109,6 @@ Retrieve information about an existing wobble.
 curl https://wobble.biz/wobbles/v1/{username}/{wobble_id}
 ```
 
-```bash
-$ wbl wobble read-wobble wobble-id
-```
-
-```python
-attrs = wobbles.read_wobble(wobble_id).json()
-```
-
 ```javascript
 client.readWobble('wobble-id',
   function(err, wobble) {
@@ -165,18 +140,6 @@ PATCH /wobbles/v1/{username}/{wobble_id}
 ```curl
 curl --request PATCH https://wobble.biz/wobbles/v1/{username}/{wobble_id} \
   -d @data.json
-```
-
-```python
-resp = wobbles.update_wobble(
-  wobble_id,
-  name='updated example',
-  description='An updated example wobble'
-  ).json()
-```
-
-```bash
-$ wbl wobble update-wobble wobble-id
 ```
 
 ```javascript
@@ -227,14 +190,6 @@ DELETE /wobbles/v1/{username}/{wobble_id}
 curl -X DELETE https://wobble.biz/wobbles/v1/{username}/{wobble_id}
 ```
 
-```bash
-$ wbl wobble delete-wobble wobble-id
-```
-
-```python
-resp = wobbles.delete_wobble(wobble_id)
-```
-
 ```javascript
 client.deleteWobble('wobble-id', function(err) {
   if (!err) console.log('deleted!');
@@ -258,14 +213,6 @@ GET /wobbles/v1/{username}/{wobble_id}/wibbles
 
 ```curl
 curl https://wobble.biz/wobbles/v1/{username}/{wobble_id}/wibbles
-```
-
-```bash
-$ wbl wobble list-wibbles wobble-id
-```
-
-```python
-collection = wobbles.list_wibbles(wobble_id).json()
 ```
 
 ```javascript
@@ -314,10 +261,6 @@ PUT /wobbles/v1/{username}/{wobble_id}/wibbles/{wibble_id}
 curl https://wobble.biz/wobbles/v1/{username}/{wobble_id}/wibbles/{wibble_id} \
   -X PUT \
   -d @file.geojson
-```
-
-```bash
-$ wbl wobble put-wibble wobble-id wibble-id 'geojson-wibble'
 ```
 
 ```javascript
@@ -372,19 +315,11 @@ GET /wobbles/v1/{username}/{wobble_id}/wibbles/{wibble_id}
 curl https://wobble.biz/wobbles/v1/{username}/{wobble_id}/wibbles/{wibble_id}
 ```
 
-```bash
-$ wbl wobble read-wibble wobble-id wibble-id
-```
-
 ```javascript
 client.readWobble('wibble-id', 'wobble-id',
   function(err, wibble) {
     console.log(wibble);
   });
-```
-
-```python
-wibble = wobbles.read_wibble(wobble_id, '2').json()
 ```
 
 #### Example response
@@ -417,14 +352,6 @@ client.deleteWobble('wibble-id', 'wobble-id', function(err, wibble) {
 
 ```curl
 curl -X DELETE https://wobble.biz/wobbles/v1/{username}/{wobble_id}/wibbles/{wibble_id}
-```
-
-```python
-resp = wobbles.delete_wibble(wobble_id, wibble_id)
-```
-
-```bash
-$ wbl wobble delete-wibble wobble-id wibble-id
 ```
 
 #### Example response
