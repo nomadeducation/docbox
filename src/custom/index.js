@@ -1,5 +1,7 @@
 'use strict';
 
+import React from 'react';
+
 /**
  * Brand names, in order to decreasing length, for different
  * media queries.
@@ -20,6 +22,11 @@ module.exports.brandClasses = 'image-ne';
  * Text for the link back to the linking website.
  */
 module.exports.backLink = 'Back to nomadeducation.fr';
+
+module.exports.footerContent = (
+<div className='space-top2 pad1y keyline-top'>
+  <a className='block small quiet' href='https://status.nomadeducation.com'>Status Page</a>
+</div>);
 
 /**
  * Runs after highlighting code samples. You can use this

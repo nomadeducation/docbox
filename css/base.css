@@ -762,6 +762,10 @@ hr {
   background:rgba(0,0,0,.05);
   }
 
+footer hr {
+  margin:10px 0;
+}
+
 .dark hr {
   background:rgba(255,255,255,.05);
 }
