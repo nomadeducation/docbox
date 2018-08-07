@@ -1,26 +1,27 @@
 ## Users
 
-TODO
-This is our high-quality wobbles API. You can use this API to request
-and remove different wobbles at a low wibble price.
+Most of these routes are reserved for admin purpose only!
 
 ### List users
 
-Lists all wobbles for a particular account.
+_You'll need to have the `identity.users.list` permission._
+
+Lists all users.
 
 ```endpoint
-GET /wobbles/v1/{username} wobbles:read
+GET /v2/users
 ```
 
 #### Example request
 
 ```curl
-$ curl https://wobble.biz/wobbles/v1/{username}
+$ curl https://api.nomadeducation.com/v2/users
 ```
 
 ```javascript
-client.listWobbles(function(err, wobbles) {
-  console.log(wobbles);
+// TODO
+client.user.list(function(err, users) {
+  console.log(users);
 });
 ```
 
@@ -29,40 +30,53 @@ client.listWobbles(function(err, wobbles) {
 ```json
 [
   {
-    "owner": "{username}",
-    "id": "{wobble_id}",
-    "created": "{timestamp}",
-    "modified": "{timestamp}"
+    "id": "d4ea00d4-0488-497e-a6a1-611c70d39c41",
+    "first_name": "Joe",
+    "last_name": "Smith",
+    "username": "jsmith",
+    "email": "joe.smith@acme.com",
+    "roles": [4, 2],
+    "active": true,
+    "created_at": "2018-07-11T13:59:03.666Z",
+    "updated_at": "2018-07-11T14:00:00.000Z"
   },
   {
-    "owner": "{username}",
-    "id": "{wobble_id}",
-    "created": "{timestamp}",
-    "modified": "{timestamp}"
+    "id": "cb49bc80-fb80-40f9-9025-194a5be86307",
+    "first_name": "Adam",
+    "last_name": "Oldman",
+    "username": "adam.old",
+    "email": "adold@acme.com",
+    "roles": [666],
+    "active": true,
+    "created_at": "2018-07-11T13:59:03.656Z",
+    "updated_at": "2018-07-11T14:00:00.000Z"
   }
 ]
 ```
 
 ### Create a user
 
-Creates a new, empty wobble.
+_You'll need to have the `identity.users.create` permission._
+
+Creates a new user.
 
 ```endpoint
-POST /wobbles/v1/{username}
+POST /v2/users
 ```
 
 #### Example request
 
 ```curl
-curl -X POST https://wobble.biz/wobbles/v1/{username}
+curl -X POST -H "Content-Type: application/json" https://api.nomadeducation.com/v2/users
 ```
 
 ```javascript
-client.createWobble({
-  name: 'example',
-  description: 'An example wobble'
-}, function(err, wobble) {
-  console.log(wobble);
+// TODO
+client.user.create({
+  email: 'john.doe@acme.com',
+  password: 'givemethekn1ght'
+}, function(err, newUser) {
+  console.log(newUser);
 });
 ```
 
@@ -70,290 +84,30 @@ client.createWobble({
 
 ```json
 {
-  "name": "foo",
-  "description": "bar"
+  "email": "john.doe@acme.com",
+  "password": "givemethekn1ght"
 }
 ```
 
-Property | Description
----|---
-`name` | (optional) the name of the wobble
-`description` | (optional) a description of the wobble
+Property | Type | Description
+---|---|---
+`email` | string | (**required**) must be a valid email
+`password` | string | (**required**) must contains at least **6** characters
+`username` | string | (optional) not set, this will contain the same value as the email
+`first_name` | string | (optional) can contains at most **50** characters
+`last_name` | string | (optional) can contains at most **50** characters
+`roles` | array of integer | (optional) contains an array of role ids (only the "registered" role id by default)
 
 #### Example response
 
 ```json
 {
-  "owner": "{username}",
-  "id": "{wobble_id}",
-  "name": null,
-  "description": null,
-  "created": "{timestamp}",
-  "modified": "{timestamp}"
+  "id": "9916c2ae-bdc1-46e7-8543-4934f8d8ebce",
+  "first_name": "",
+  "last_name": "",
+  "email": "john.doe@acme.com",
+  "username": "john.doe@acme.com",
+  "created_at": "2018-08-07T13:47:23.077Z",
+  "updated_at": "2018-08-07T13:47:23.077Z"
 }
 ```
-
-### Retrieve a user
-
-Returns a single wobble.
-
-```endpoint
-GET /wobbles/v1/{username}/{wobble_id}
-```
-
-Retrieve information about an existing wobble.
-
-#### Example request
-
-```curl
-curl https://wobble.biz/wobbles/v1/{username}/{wobble_id}
-```
-
-```javascript
-client.readWobble('wobble-id',
-  function(err, wobble) {
-    console.log(wobble);
-  });
-```
-
-#### Example response
-
-```json
-{
-  "owner": "{username}",
-  "id": "{wobble_id}",
-  "created": "{timestamp}",
-  "modified": "{timestamp}"
-}
-```
-
-### Update a user
-
-Updates the properties of a particular wobble.
-
-```endpoint
-PATCH /wobbles/v1/{username}/{wobble_id}
-```
-
-#### Example request
-
-```curl
-curl --request PATCH https://wobble.biz/wobbles/v1/{username}/{wobble_id} \
-  -d @data.json
-```
-
-```javascript
-var options = { name: 'foo' };
-client.updateWobble('wobble-id', options, function(err, wobble) {
-  console.log(wobble);
-});
-```
-
-#### Example request body
-
-```json
-{
-  "name": "foo",
-  "description": "bar"
-}
-```
-
-Property | Description
----|---
-`name` | (optional) the name of the wobble
-`description` | (optional) a description of the wobble
-
-#### Example response
-
-```json
-{
-  "owner": "{username}",
-  "id": "{wobble_id}",
-  "name": "foo",
-  "description": "bar",
-  "created": "{timestamp}",
-  "modified": "{timestamp}"
-}
-```
-
-### Delete a user
-
-Deletes a wobble, including all wibbles it contains.
-
-```endpoint
-DELETE /wobbles/v1/{username}/{wobble_id}
-```
-
-#### Example request
-
-```curl
-curl -X DELETE https://wobble.biz/wobbles/v1/{username}/{wobble_id}
-```
-
-```javascript
-client.deleteWobble('wobble-id', function(err) {
-  if (!err) console.log('deleted!');
-});
-```
-
-#### Example response
-
-> HTTP 204
-
-### List wibbles
-
-List all the wibbles in a wobble. The response body will be a
-WobbleCollection.
-
-```endpoint
-GET /wobbles/v1/{username}/{wobble_id}/wibbles
-```
-
-#### Example request
-
-```curl
-curl https://wobble.biz/wobbles/v1/{username}/{wobble_id}/wibbles
-```
-
-```javascript
-client.listWobbles('wobble-id', {}, function(err, collection) {
-  console.log(collection);
-});
-```
-
-#### Example response
-
-```json
-{
-  "type": "Wobble",
-  "wibbles": [
-    {
-      "id": "{wibble_id}",
-      "type": "Wobble",
-      "properties": {
-        "prop0": "value0"
-      }
-    },
-    {
-      "id": "{wibble_id}",
-      "type": "Wobble",
-      "properties": {
-        "prop0": "value0"
-      }
-    }
-  ]
-}
-```
-
-### Insert or update a wibble
-
-Inserts or updates a wibble in a wobble. If there's already a wibble
-with the given ID in the wobble, it will be replaced. If there isn't
-a wibble with that ID, a new wibble is created.
-
-```endpoint
-PUT /wobbles/v1/{username}/{wobble_id}/wibbles/{wibble_id}
-```
-
-#### Example request
-
-```curl
-curl https://wobble.biz/wobbles/v1/{username}/{wobble_id}/wibbles/{wibble_id} \
-  -X PUT \
-  -d @file.geojson
-```
-
-```javascript
-var wibble = {
-  "type": "Wobble",
-  "properties": { "name": "Null Island" }
-};
-client.insertWobble(wibble, 'wobble-id', function(err, wibble) {
-  console.log(wibble);
-});
-```
-
-#### Example request body
-
-```json
-{
-  "id": "{wibble_id}",
-  "type": "Wobble",
-  "properties": {
-    "prop0": "value0"
-  }
-}
-```
-
-Property | Description
---- | ---
-`id` | the id of an existing wibble in the wobble
-
-#### Example response
-
-```json
-{
-  "id": "{wibble_id}",
-  "type": "Wobble",
-  "properties": {
-    "prop0": "value0"
-  }
-}
-```
-
-### Retrieve a wibble
-
-Retrieves a wibble in a wobble.
-
-```endpoint
-GET /wobbles/v1/{username}/{wobble_id}/wibbles/{wibble_id}
-```
-
-#### Example request
-
-```curl
-curl https://wobble.biz/wobbles/v1/{username}/{wobble_id}/wibbles/{wibble_id}
-```
-
-```javascript
-client.readWobble('wibble-id', 'wobble-id',
-  function(err, wibble) {
-    console.log(wibble);
-  });
-```
-
-#### Example response
-
-```json
-{
-  "id": "{wibble_id}",
-  "type": "Wobble",
-  "properties": {
-    "prop0": "value0"
-  }
-}
-```
-
-### Delete a wibble
-
-Removes a wibble from a wobble.
-
-```endpoint
-DELETE /wobbles/v1/{username}/{wobble_id}/wibbles/{wibble_id}
-```
-
-#### Example request
-
-```javascript
-client.deleteWobble('wibble-id', 'wobble-id', function(err, wibble) {
-  if (!err) console.log('deleted!');
-});
-```
-
-```curl
-curl -X DELETE https://wobble.biz/wobbles/v1/{username}/{wobble_id}/wibbles/{wibble_id}
-```
-
-#### Example response
-
-> HTTP 204
