@@ -15,13 +15,15 @@ In practice, we'll recommend that you'll first use a `HEAD` request to retrieve 
 
 ```curl
 # first get the total number of objects
-$ curl -X HEAD -H "Range: items=0-1" https://api.nomadeducation.com/v2/{resource}
+$ curl -X HEAD https://api.nomadeducation.com/v2/{resource}
 
-HTTP/1.1 206 Partial Content
-Content-Range: items 0-1/1024
+HTTP/1.1 200 OK
+Content-Range: items */1337
 
 # then you can paginate all over the resource
 $ curl -H "Range: items=0-99" https://api.nomadeducation.com/v2/{resource}
-$ curl -H "Range: items=100-199" https://api.nomadeducation.com/v2/{resource}
+
+HTTP/1.1 206 Partial Content
+Content-Range: items 0-99/1337
 ...
 ```
