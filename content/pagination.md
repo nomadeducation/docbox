@@ -9,21 +9,28 @@ Header | Description | Example
 
 We prohibit the usage of `*` in the `Range` header (e.g. `Range: items=0-*`) as we want users to be explicit about the requested range. The maximum number of objects that can be requested in one request is **100**.
 
-In practice, we'll recommend that you'll first use a `HEAD` request to retrieve the total number of objects for the resource at that time.
+In practice, we'll **recommend** that you'll first use a `HEAD` request to retrieve the total number of objects for the resource at that time.
 
-#### Example request
+#### Fetch users
 
 ```curl
-# first get the total number of objects
-$ curl -X HEAD https://api.nomadeducation.com/v2/{resource}
-
-HTTP/1.1 200 OK
-Content-Range: items */1337
-
-# then you can paginate all over the resource
-$ curl -H "Range: items=0-99" https://api.nomadeducation.com/v2/{resource}
+curl -H "Range: items=0-99" https://api.nomadeducation.com/v2/users
 
 HTTP/1.1 206 Partial Content
 Content-Range: items 0-99/1337
 ...
+```
+
+```javascript
+const Nomad = require("nomadeducation");
+const client = new Nomad({api_key: "d6921bc91cd2470e6a265974d4d9c47a"});
+
+async function fn () {
+    const {maxItemsPerPage, count} = client.user.metadata();
+
+    // retrieve the entire users collection
+    for (let offset = 0; offset < count; offset += maxItemsPerPage) {
+        const users = client.user.list(offset, maxItemsPerPage);
+    }
+}
 ```
