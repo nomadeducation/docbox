@@ -5,7 +5,7 @@ SHA=$(git rev-parse --verify HEAD)
 
 rm -rf .git
 git init
-git remote add upstream git@github.com:nomadeducation/kane-docs-website.git
+git remote add upstream git@github.com:nomadeducation/gh-kane-docs-website.git
 
 git config user.name "Travis CI"
 git config user.email "developer+travis@nomadeducation.fr"
