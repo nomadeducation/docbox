@@ -11,6 +11,6 @@ Some 4xx errors that could be handled programmatically return a JSON payload tha
 
 Property | Type | Description
 ---|---|---
-`message` | string | a brief description of what went wrong while processing the request
-
-You can find our (small) error handler library on [GitHub](https://github.com/nomadeducation/kane-error).
+`code` | string | (**required**) a unique identifier to better detect what kind of errors has been returned
+`message` | string | (**required**) a brief description of what went wrong while processing the request
+`details` | string | further information to better debug

@@ -50,14 +50,14 @@ Do not share your secret API keys in publicly accessible areas such as GitHub, c
 #### Example request
 
 ```curl
-curl -X GET -H "Authorization: Bearer c0ffee1b6082cd97fcd43de4ceea9bae" https://api.nomadeducation.com/v2/users
+curl -X GET -H "Authorization: Bearer 4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4" https://api.nomadeducation.com/v2/users
 ```
 
 ```javascript
 const Nomad = require("nomadeducation");
 
 const client = new Nomad({
-    api_key: "d6921bc91cd2470e6a265974d4d9c47a"
+    api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"
 });
 ```
 
@@ -72,7 +72,7 @@ POST /v2/me
 #### Example request
 
 ```curl
-curl -X GET -H "Authorization: Bearer c0ffee1b6082cd97fcd43de4ceea9bae" https://api.nomadeducation.com/v2/me
+curl -X GET -H "Authorization: Bearer 4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4" https://api.nomadeducation.com/v2/me
 ```
 
 ```javascript
@@ -88,10 +88,21 @@ async function fn () {
 ```json
 {
   "id": "676a14fc-5b67-4462-a1e5-dd4e3208b593",
+  "token": "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4",
   "first_name": "joe",
   "last_name": "doe",
   "username": "joe.doe",
   "email": "joe.doe@example.com",
+  "roles": [
+    {
+      "id": "de866ce2-277b-437b-aa2b-85068e03c7b7",
+      "name": "registered"
+    },
+    {
+      "id": "d0850090-7523-441f-8b77-b9c3567c5d66",
+      "name": "super-cool"
+    }
+  ],
   "created_at": "2018-09-14T07:33:45.903Z",
   "updated_at": "2018-09-14T07:33:45.903Z"
 }

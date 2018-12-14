@@ -23,7 +23,7 @@ Content-Range: items 0-99/1337
 
 ```javascript
 const Nomad = require("nomadeducation");
-const client = new Nomad({api_key: "d6921bc91cd2470e6a265974d4d9c47a"});
+const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 
 async function fn () {
     const {maxItemsPerPage, count} = client.user.metadata();
