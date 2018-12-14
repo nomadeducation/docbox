@@ -1,10 +1,6 @@
 ## Users
 
-Most of these routes are reserved to admin purposes only!
-
 ### Metadata on users
-
-_You'll need to have the `identity.users.list` permission._
 
 Retrieve metadata on users such as the current count.
 
@@ -24,7 +20,7 @@ Content-Range: items */1337
 
 ```javascript
 const Nomad = require("nomadeducation");
-const client = new Nomad({api_key: "d6921bc91cd2470e6a265974d4d9c47a"});
+const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 
 async function fn () {
     const {maxItemsPerPage, count} = client.user.metadata();
@@ -33,8 +29,6 @@ async function fn () {
 ```
 
 ### Test user existence
-
-_You'll need to have the `identity.users.get` permission._
 
 Check if a user exists on our database.
 
@@ -50,7 +44,7 @@ curl -X HEAD https://api.nomadeducation.com/v2/users/2a7d6c16-c7c3-49ce-a863-c55
 
 ```javascript
 const Nomad = require("nomadeducation");
-const client = new Nomad({api_key: "d6921bc91cd2470e6a265974d4d9c47a"});
+const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 
 async function fn () {
     const doesExists = await client.user.exists("2a7d6c16-c7c3-49ce-a863-c5524df7fddd");
@@ -59,8 +53,6 @@ async function fn () {
 ```
 
 ### Get one user
-
-_You'll need to have the `identity.users.get` permission._
 
 Get infos about a specific user.
 
@@ -76,7 +68,7 @@ curl https://api.nomadeducation.com/v2/users/2a7d6c16-c7c3-49ce-a863-c5524df7fdd
 
 ```javascript
 const Nomad = require("nomadeducation");
-const client = new Nomad({api_key: "d6921bc91cd2470e6a265974d4d9c47a"});
+const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 
 async function fn () {
     const userInfos = await client.user.get("2a7d6c16-c7c3-49ce-a863-c5524df7fddd");
@@ -93,14 +85,16 @@ async function fn () {
   "last_name": "sparrow",
   "username": "jacky",
   "email": "jack@black-pearl.com",
+  "roles": {
+    "registered": "de866ce2-277b-437b-aa2b-85068e03c7b7",
+    "super-cool": "d0850090-7523-441f-8b77-b9c3567c5d66"
+  },
   "created_at": "2018-09-14T07:33:45.903Z",
   "updated_at": "2018-09-14T07:33:45.903Z"
 }
 ```
 
 ### List users
-
-_You'll need to have the `identity.users.list` permission._
 
 Lists all users.
 
@@ -116,7 +110,7 @@ curl https://api.nomadeducation.com/v2/users
 
 ```javascript
 const Nomad = require("nomadeducation");
-const client = new Nomad({api_key: "d6921bc91cd2470e6a265974d4d9c47a"});
+const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 
 async function fn () {
     const offset = 42;
@@ -136,7 +130,10 @@ async function fn () {
     "last_name": "Smith",
     "username": "jsmith",
     "email": "joe.smith@acme.com",
-    "roles": [4, 2],
+    "roles": {
+      "registered": "de866ce2-277b-437b-aa2b-85068e03c7b7",
+      "super-cool": "d0850090-7523-441f-8b77-b9c3567c5d66"
+    },
     "active": true,
     "created_at": "2018-07-11T13:59:03.666Z",
     "updated_at": "2018-07-11T14:00:00.000Z"
@@ -147,7 +144,9 @@ async function fn () {
     "last_name": "Oldman",
     "username": "adam.old",
     "email": "adold@acme.com",
-    "roles": [666],
+    "roles": {
+      "registered": "de866ce2-277b-437b-aa2b-85068e03c7b7"
+    },
     "active": true,
     "created_at": "2018-07-11T13:59:03.656Z",
     "updated_at": "2018-07-11T14:00:00.000Z"
@@ -156,8 +155,6 @@ async function fn () {
 ```
 
 ### Create a user
-
-_You'll need to have the `identity.users.save` permission._
 
 Creates a new user.
 
@@ -172,7 +169,6 @@ Property | Type | Description
 `username` | string | if not set, this will contain the same value as the email
 `first_name` | string | can contains at most **50** characters
 `last_name` | string | can contains at most **50** characters
-`roles` | array of integer | contains an array of role ids (only the "registered" role id by default)
 
 #### Example request
 
@@ -189,7 +185,7 @@ EOF
 
 ```javascript
 const Nomad = require("nomadeducation");
-const client = new Nomad({api_key: "d6921bc91cd2470e6a265974d4d9c47a"});
+const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 
 async function fn () {
     const newUser = await client.user.create({email: "joe.doe@example.com", password: "givemethekn1ght"});
@@ -202,18 +198,13 @@ async function fn () {
 ```json
 {
   "id": "9916c2ae-bdc1-46e7-8543-4934f8d8ebce",
-  "first_name": "",
-  "last_name": "",
-  "email": "john.doe@example.com",
-  "username": "john.doe@example.com",
+  "token": "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4",
   "created_at": "2018-08-07T13:47:23.077Z",
   "updated_at": "2018-08-07T13:47:23.077Z"
 }
 ```
 
 ### Update a user
-
-_You'll need to have the `identity.users.save` permission._
 
 Update a user.
 
@@ -242,7 +233,7 @@ EOF
 
 ```javascript
 const Nomad = require("nomadeducation");
-const client = new Nomad({api_key: "d6921bc91cd2470e6a265974d4d9c47a"});
+const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 
 async function fn () {
     const isUpdated = await client.user.update({
@@ -258,18 +249,118 @@ async function fn () {
 ```json
 {
   "id": "9916c2ae-bdc1-46e7-8543-4934f8d8ebce",
-  "first_name": "",
-  "last_name": "",
-  "email": "john.doe@example.com",
-  "username": "john.doe",
   "created_at": "2018-08-07T13:47:23.077Z",
   "updated_at": "2018-08-07T13:47:23.077Z"
 }
 ```
 
-### Enable a user
+### Add roles to a user
 
-_You'll need to have the `identity.users.save` permission._
+Adding roles to a user will give him more access to the API. You can add multiple roles to a user in the same request.
+
+Added roles can be rejected if one of the following condition is reached:
+- the role identifier doesn't exist
+- the user is "reserved", meaning that we can't change its roles via the API
+
+```endpoint
+PATCH /v2/users/:id/add-roles
+```
+
+#### Example request
+
+```curl
+curl -X PATCH https://api.nomadeducation.com/v2/users/9916c2ae-bdc1-46e7-8543-4934f8d8ebce/add-roles \
+-H 'Content-Type: application/json' \
+-d @- <<'EOF'
+[
+  "e0ce12f9-e74e-4cd3-aafa-a7f88190364a",
+  "da37f8cd-e5c6-4caa-bd76-90b09087063f"
+]
+EOF
+```
+
+```javascript
+const Nomad = require("nomadeducation");
+const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
+
+async function fn () {
+    const res = await client.user.addRoles(
+        "9916c2ae-bdc1-46e7-8543-4934f8d8ebce",
+        [
+            "e0ce12f9-e74e-4cd3-aafa-a7f88190364a",
+            "da37f8cd-e5c6-4caa-bd76-90b09087063f"
+        ]
+    );
+    console.log(res);
+}
+```
+
+#### Example response
+
+```json
+{
+  "accepted": [
+    "e0ce12f9-e74e-4cd3-aafa-a7f88190364a",
+    "da37f8cd-e5c6-4caa-bd76-90b09087063f"
+  ],
+  "rejected": []
+}
+```
+
+### Remove roles to a user
+
+This will restrict the access to the API. You can remove multiple roles to a user in the same request.
+
+Removed roles can be rejected if one of the following condition is reached:
+- the role identifier doesn't exist
+- the user is "reserved", meaning that we can't change its roles via the API
+
+```endpoint
+PATCH /v2/users/:id/remove-roles
+```
+
+#### Example request
+
+```curl
+curl -X PATCH https://api.nomadeducation.com/v2/users/9916c2ae-bdc1-46e7-8543-4934f8d8ebce/remove-roles \
+-H 'Content-Type: application/json' \
+-d @- <<'EOF'
+[
+  "e0ce12f9-e74e-4cd3-aafa-a7f88190364a",
+  "da37f8cd-e5c6-4caa-bd76-90b09087063f"
+]
+EOF
+```
+
+```javascript
+const Nomad = require("nomadeducation");
+const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
+
+async function fn () {
+    const res = await client.user.removeRoles(
+        "9916c2ae-bdc1-46e7-8543-4934f8d8ebce",
+        [
+            "e0ce12f9-e74e-4cd3-aafa-a7f88190364a",
+            "da37f8cd-e5c6-4caa-bd76-90b09087063f"
+        ]
+    );
+    console.log(res);
+}
+```
+
+#### Example response
+
+```json
+{
+  "accepted": [
+    "e0ce12f9-e74e-4cd3-aafa-a7f88190364a",
+    "da37f8cd-e5c6-4caa-bd76-90b09087063f"
+  ],
+  "rejected": []
+}
+```
+
+### Enable a user
 
 Enabling a user will allow him to have access the API (_if he was previously disabled_).
 
@@ -285,7 +376,7 @@ curl -X PATCH https://api.nomadeducation.com/v2/users/9916c2ae-bdc1-46e7-8543-49
 
 ```javascript
 const Nomad = require("nomadeducation");
-const client = new Nomad({api_key: "d6921bc91cd2470e6a265974d4d9c47a"});
+const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 
 async function fn () {
     const isEnabled = await client.user.enable("9916c2ae-bdc1-46e7-8543-4934f8d8ebce");
@@ -304,8 +395,6 @@ async function fn () {
 
 ### Disable a user
 
-_You'll need to have the `identity.users.save` permission._
-
 Disabling a user will prevent him from having access to the API. Besides, we won't be able to have access to its personal data.
 
 This is the **recommended** way to delete a user.
@@ -322,7 +411,7 @@ curl -X PATCH https://api.nomadeducation.com/v2/users/9916c2ae-bdc1-46e7-8543-49
 
 ```javascript
 const Nomad = require("nomadeducation");
-const client = new Nomad({api_key: "d6921bc91cd2470e6a265974d4d9c47a"});
+const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 
 async function fn () {
     const isDisabled = await client.user.disable("9916c2ae-bdc1-46e7-8543-4934f8d8ebce");
@@ -341,8 +430,6 @@ async function fn () {
 
 ### Remove a user
 
-_You'll need to have the `identity.users.delete` permission._
-
 Remove a user from our database. This is **non-recoverable** action!
 
 ```endpoint
@@ -357,7 +444,7 @@ curl -X DELETE https://api.nomadeducation.com/v2/users/9916c2ae-bdc1-46e7-8543-4
 
 ```javascript
 const Nomad = require("nomadeducation");
-const client = new Nomad({api_key: "d6921bc91cd2470e6a265974d4d9c47a"});
+const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 
 async function fn () {
     const isRemoved = await client.user.remove("9916c2ae-bdc1-46e7-8543-4934f8d8ebce");
