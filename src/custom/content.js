@@ -16,8 +16,10 @@ module.exports =
     fs.readFileSync('./content/rate-limits.md', 'utf8') + '\n' +
     fs.readFileSync('./content/request-ids.md', 'utf8') + '\n' +
     fs.readFileSync('./content/authentication.md', 'utf8') + '\n' +
+    fs.readFileSync('./content/acl.md', 'utf8') + '\n' +
     fs.readFileSync('./content/errors.md', 'utf8') + '\n' +
     fs.readFileSync('./content/pagination.md', 'utf8') + '\n' +
+    fs.readFileSync('./content/sorting.md', 'utf8') + '\n' +
     fs.readFileSync('./content/filtering.md', 'utf8') + '\n' +
     '# Identity Service\n' +
     fs.readFileSync('./content/users.md', 'utf8') + '\n' +
