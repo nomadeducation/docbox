@@ -23,7 +23,7 @@ const Nomad = require("nomadeducation");
 const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 
 async function fn () {
-    const {maxItemsPerPage, count} = await client.role.metadata();
+    const {maxItemsPerPage, count} = await client.roles.metadata();
     console.log(count, maxItemsPerPage);
 }
 ```
@@ -47,7 +47,7 @@ const Nomad = require("nomadeducation");
 const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 
 async function fn () {
-    const doesExists = await client.role.exists("7c8add14-a9b9-4362-8cca-a0b815645338");
+    const doesExists = await client.roles.exists("7c8add14-a9b9-4362-8cca-a0b815645338");
     console.log(doesExists);
 }
 ```
@@ -71,7 +71,7 @@ const Nomad = require("nomadeducation");
 const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 
 async function fn () {
-    const role = await client.role.get("69178024-a990-464f-8989-910781d19ee5");
+    const role = await client.roles.get("69178024-a990-464f-8989-910781d19ee5");
     console.log(role);
 }
 ```
@@ -107,7 +107,7 @@ const Nomad = require("nomadeducation");
 const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 
 async function fn () {
-    const permissions = await client.role.listPermissions("69178024-a990-464f-8989-910781d19ee5");
+    const permissions = await client.roles.listPermissions("69178024-a990-464f-8989-910781d19ee5");
     console.log(permissions);
 }
 ```
@@ -153,7 +153,7 @@ const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 async function fn () {
     const offset = 0;
     const limit = 2;
-    const roles = await client.role.list(offset, limit);
+    const roles = await client.roles.list(offset, limit);
     console.log(roles);
 }
 ```
@@ -210,7 +210,7 @@ const Nomad = require("nomadeducation");
 const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 
 async function fn () {
-    const newRole = await client.role.create({name: "useless role", description: "did i heard something...?"});
+    const newRole = await client.roles.create({name: "useless role", description: "did i heard something...?"});
     console.log(newRole);
 }
 ```
@@ -255,7 +255,7 @@ const Nomad = require("nomadeducation");
 const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 
 async function fn () {
-    const isUpdated = await client.role.update({
+    const isUpdated = await client.roles.update({
         id: "4f0b7c26-0729-42be-8f6b-4cf7384170db",
         name: "not so useless"
     });
@@ -303,7 +303,7 @@ const Nomad = require("nomadeducation");
 const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 
 async function fn () {
-    const res = await client.role.addPermissions(
+    const res = await client.roles.addPermissions(
         "4f0b7c26-0729-42be-8f6b-4cf7384170db",
         [
             "388ac2b7-e737-4124-8125-d4a2d8db1585",
@@ -356,7 +356,7 @@ const Nomad = require("nomadeducation");
 const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 
 async function fn () {
-    const res = await client.role.removePermissions(
+    const res = await client.roles.removePermissions(
         "4f0b7c26-0729-42be-8f6b-4cf7384170db",
         [
             "388ac2b7-e737-4124-8125-d4a2d8db1585",
@@ -398,7 +398,7 @@ const Nomad = require("nomadeducation");
 const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 
 async function fn () {
-    const isRemoved = await client.role.remove("4f0b7c26-0729-42be-8f6b-4cf7384170db");
+    const isRemoved = await client.roles.remove("4f0b7c26-0729-42be-8f6b-4cf7384170db");
     console.log(isRemoved);
 }
 ```

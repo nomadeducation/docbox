@@ -23,7 +23,7 @@ const Nomad = require("nomadeducation");
 const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 
 async function fn () {
-    const {maxItemsPerPage, count} = await client.permission.metadata();
+    const {maxItemsPerPage, count} = await client.permissions.metadata();
     console.log(count, maxItemsPerPage);
 }
 ```
@@ -47,7 +47,7 @@ const Nomad = require("nomadeducation");
 const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 
 async function fn () {
-    const doesExists = await client.permission.exists("388ac2b7-e737-4124-8125-d4a2d8db1585");
+    const doesExists = await client.permissions.exists("388ac2b7-e737-4124-8125-d4a2d8db1585");
     console.log(doesExists);
 }
 ```
@@ -71,7 +71,7 @@ const Nomad = require("nomadeducation");
 const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 
 async function fn () {
-    const permission = await client.permission.get("388ac2b7-e737-4124-8125-d4a2d8db1585");
+    const permission = await client.permissions.get("388ac2b7-e737-4124-8125-d4a2d8db1585");
     console.log(permission);
 }
 ```
@@ -108,7 +108,7 @@ const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 async function fn () {
     const offset = 40;
     const limit = 2;
-    const permissions = await client.permission.list(offset, limit);
+    const permissions = await client.permissions.list(offset, limit);
     console.log(permissions);
 }
 ```

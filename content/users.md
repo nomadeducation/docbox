@@ -23,7 +23,7 @@ const Nomad = require("nomadeducation");
 const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 
 async function fn () {
-    const {maxItemsPerPage, count} = await client.user.metadata();
+    const {maxItemsPerPage, count} = await client.users.metadata();
     console.log(count, maxItemsPerPage);
 }
 ```
@@ -47,7 +47,7 @@ const Nomad = require("nomadeducation");
 const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 
 async function fn () {
-    const doesExists = await client.user.exists("2a7d6c16-c7c3-49ce-a863-c5524df7fddd");
+    const doesExists = await client.users.exists("2a7d6c16-c7c3-49ce-a863-c5524df7fddd");
     console.log(doesExists);
 }
 ```
@@ -71,7 +71,7 @@ const Nomad = require("nomadeducation");
 const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 
 async function fn () {
-    const userInfos = await client.user.get("2a7d6c16-c7c3-49ce-a863-c5524df7fddd");
+    const userInfos = await client.users.get("2a7d6c16-c7c3-49ce-a863-c5524df7fddd");
     console.log(userInfos);
 }
 ```
@@ -115,7 +115,7 @@ const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 async function fn () {
     const offset = 42;
     const limit = 2;
-    const users = await client.user.list(offset, limit);
+    const users = await client.users.list(offset, limit);
     console.log(users);
 }
 ```
@@ -188,7 +188,7 @@ const Nomad = require("nomadeducation");
 const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 
 async function fn () {
-    const newUser = await client.user.create({email: "joe.doe@example.com", password: "givemethekn1ght"});
+    const newUser = await client.users.create({email: "joe.doe@example.com", password: "givemethekn1ght"});
     console.log(newUser);
 }
 ```
@@ -236,7 +236,7 @@ const Nomad = require("nomadeducation");
 const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 
 async function fn () {
-    const isUpdated = await client.user.update({
+    const isUpdated = await client.users.update({
         id: "9916c2ae-bdc1-46e7-8543-4934f8d8ebce",
         username: "joe.doe"
     });
@@ -284,7 +284,7 @@ const Nomad = require("nomadeducation");
 const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 
 async function fn () {
-    const res = await client.user.addRoles(
+    const res = await client.users.addRoles(
         "9916c2ae-bdc1-46e7-8543-4934f8d8ebce",
         [
             "e0ce12f9-e74e-4cd3-aafa-a7f88190364a",
@@ -337,7 +337,7 @@ const Nomad = require("nomadeducation");
 const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 
 async function fn () {
-    const res = await client.user.removeRoles(
+    const res = await client.users.removeRoles(
         "9916c2ae-bdc1-46e7-8543-4934f8d8ebce",
         [
             "e0ce12f9-e74e-4cd3-aafa-a7f88190364a",
@@ -379,7 +379,7 @@ const Nomad = require("nomadeducation");
 const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 
 async function fn () {
-    const isEnabled = await client.user.enable("9916c2ae-bdc1-46e7-8543-4934f8d8ebce");
+    const isEnabled = await client.users.enable("9916c2ae-bdc1-46e7-8543-4934f8d8ebce");
     console.log(isEnabled);
 }
 ```
@@ -414,7 +414,7 @@ const Nomad = require("nomadeducation");
 const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 
 async function fn () {
-    const isDisabled = await client.user.disable("9916c2ae-bdc1-46e7-8543-4934f8d8ebce");
+    const isDisabled = await client.users.disable("9916c2ae-bdc1-46e7-8543-4934f8d8ebce");
     console.log(isDisabled);
 }
 ```
@@ -447,7 +447,7 @@ const Nomad = require("nomadeducation");
 const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 
 async function fn () {
-    const isRemoved = await client.user.remove("9916c2ae-bdc1-46e7-8543-4934f8d8ebce");
+    const isRemoved = await client.users.remove("9916c2ae-bdc1-46e7-8543-4934f8d8ebce");
     console.log(isRemoved);
 }
 ```
