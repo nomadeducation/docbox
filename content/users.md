@@ -23,7 +23,7 @@ const Nomad = require("nomadeducation");
 const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 
 async function fn () {
-    const {maxItemsPerPage, count} = client.user.metadata();
+    const {maxItemsPerPage, count} = await client.user.metadata();
     console.log(count, maxItemsPerPage);
 }
 ```
