@@ -9,7 +9,7 @@ First, via a Cookie session, given after you've logged into the API. This method
 By default, sessions last no more than **a day** but can be extended to up to **5** days with the "extended session" option.
 
 ```endpoint
-POST /v2/login
+POST /v2/auth/login
 ```
 
 Property | Type | Description
@@ -21,7 +21,7 @@ Property | Type | Description
 #### Example request
 
 ```curl
-curl -X POST https://api.nomadeducation.com/v2/login \
+curl -X POST https://api.nomadeducation.com/v2/auth/login \
 -H 'Content-Type: application/json' \
 -d @- <<'EOF'
 {
@@ -66,13 +66,13 @@ const client = new Nomad({
 Once logged in, you can still retrieve your infos by using the introspective `me` route.
 
 ```endpoint
-POST /v2/me
+POST /v2/auth/me
 ```
 
 #### Example request
 
 ```curl
-curl -X GET -H "Authorization: Bearer 4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4" https://api.nomadeducation.com/v2/me
+curl -X GET -H "Authorization: Bearer 4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4" https://api.nomadeducation.com/v2/auth/me
 ```
 
 ```javascript
