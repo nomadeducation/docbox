@@ -26,4 +26,7 @@ module.exports =
     fs.readFileSync('./content/roles.md', 'utf8') + '\n' +
     fs.readFileSync('./content/permissions.md', 'utf8') + '\n' +
     '# Business Service\n' +
-    '# Content Service\n';
+    fs.readFileSync('./content/branches.md', 'utf8') + '\n' +
+    '# Content Service\n' +
+    fs.readFileSync('./content/media.md', 'utf8') + '\n' +
+    '🚧\n';
