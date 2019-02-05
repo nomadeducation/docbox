@@ -236,10 +236,10 @@ const Nomad = require("nomadeducation");
 const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 
 async function fn () {
-    const isUpdated = await client.users.update({
-        id: "9916c2ae-bdc1-46e7-8543-4934f8d8ebce",
-        username: "joe.doe"
-    });
+    const isUpdated = await client.users.update(
+        "9916c2ae-bdc1-46e7-8543-4934f8d8ebce",
+        {username: "joe.doe"}
+    );
     console.log(isUpdated);
 }
 ```
@@ -298,12 +298,10 @@ async function fn () {
 #### Example response
 
 ```json
-{
-  "accepted": [
-    "e0ce12f9-e74e-4cd3-aafa-a7f88190364a",
-    "da37f8cd-e5c6-4caa-bd76-90b09087063f"
-  ],
-  "rejected": []
+[
+  "e0ce12f9-e74e-4cd3-aafa-a7f88190364a",
+  "da37f8cd-e5c6-4caa-bd76-90b09087063f"
+]
 }
 ```
 
@@ -351,13 +349,10 @@ async function fn () {
 #### Example response
 
 ```json
-{
-  "accepted": [
-    "e0ce12f9-e74e-4cd3-aafa-a7f88190364a",
-    "da37f8cd-e5c6-4caa-bd76-90b09087063f"
-  ],
-  "rejected": []
-}
+[
+  "e0ce12f9-e74e-4cd3-aafa-a7f88190364a",
+  "da37f8cd-e5c6-4caa-bd76-90b09087063f"
+]
 ```
 
 ### Enable a user

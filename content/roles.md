@@ -255,10 +255,10 @@ const Nomad = require("nomadeducation");
 const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 
 async function fn () {
-    const isUpdated = await client.roles.update({
-        id: "4f0b7c26-0729-42be-8f6b-4cf7384170db",
-        name: "not so useless"
-    });
+    const isUpdated = await client.roles.update(
+        "4f0b7c26-0729-42be-8f6b-4cf7384170db",
+        {name: "not so useless"}
+    );
     console.log(isUpdated);
 }
 ```
@@ -317,13 +317,10 @@ async function fn () {
 #### Example response
 
 ```json
-{
-  "accepted": [
-    "388ac2b7-e737-4124-8125-d4a2d8db1585",
-    "4a27c6fe-cc7b-4ecb-ad87-ee5e599eb86e"
-  ],
-  "rejected": []
-}
+[
+  "388ac2b7-e737-4124-8125-d4a2d8db1585",
+  "4a27c6fe-cc7b-4ecb-ad87-ee5e599eb86e"
+]
 ```
 
 ### Remove permissions to a role
@@ -370,13 +367,10 @@ async function fn () {
 #### Example response
 
 ```json
-{
-  "accepted": [
-    "388ac2b7-e737-4124-8125-d4a2d8db1585",
-    "4a27c6fe-cc7b-4ecb-ad87-ee5e599eb86e"
-  ],
-  "rejected": []
-}
+[
+  "388ac2b7-e737-4124-8125-d4a2d8db1585",
+  "4a27c6fe-cc7b-4ecb-ad87-ee5e599eb86e"
+]
 ```
 
 ### Remove a role
