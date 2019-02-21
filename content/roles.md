@@ -220,8 +220,7 @@ async function fn () {
 ```json
 {
   "id": "4f0b7c26-0729-42be-8f6b-4cf7384170db",
-  "created_at": "2018-08-07T13:47:23.077Z",
-  "updated_at": "2018-08-07T13:47:23.077Z"
+  "created_at": "2018-08-07T13:47:23.077Z"
 }
 ```
 

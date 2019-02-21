@@ -199,8 +199,7 @@ async function fn () {
 {
   "id": "9916c2ae-bdc1-46e7-8543-4934f8d8ebce",
   "token": "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4",
-  "created_at": "2018-08-07T13:47:23.077Z",
-  "updated_at": "2018-08-07T13:47:23.077Z"
+  "created_at": "2018-08-07T13:47:23.077Z"
 }
 ```
 
