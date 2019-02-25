@@ -56,6 +56,23 @@ async function fn () {
 
 Get infos about a specific user.
 
+**Response**
+
+Property | Type | Description
+---|---|---
+`id` | string (UUID) | Media identifier
+`first_name` | string |
+`last_name` | string |
+`username` | string |
+`email` | string |
+`roles` | array of objects (described below) | A list roles given to your user
+`roles.id` | string (UUID) | The role identifier
+`roles.name` | string | The role name
+`is_reserved` | boolean | Specify if the role cannot be changed
+`created_by` | string (UUID) | User identifier of the creator
+`created_at` | date string (ISO 8601) |
+`updated_at` | date string (ISO 8601) |
+
 ```endpoint
 GET /v2/users/:id
 ```
@@ -156,11 +173,7 @@ async function fn () {
 
 ### Create a user
 
-Creates a new user.
-
-```endpoint
-POST /v2/users
-```
+**Request**
 
 Property | Type | Description
 ---|---|---
@@ -169,6 +182,18 @@ Property | Type | Description
 `username` | string | if not set, this will contain the same value as the email
 `first_name` | string | can contains at most **50** characters
 `last_name` | string | can contains at most **50** characters
+
+**Response**
+
+Property | Type | Description
+---|---|---
+`id` | string (UUID) | User identifier
+`token` | string | A generated identifier used to make requests without explicit login
+`created_at` | date string (ISO 8601) |
+
+```endpoint
+POST /v2/users
+```
 
 #### Example request
 
@@ -205,11 +230,7 @@ async function fn () {
 
 ### Update a user
 
-Update a user.
-
-```endpoint
-PATCH /v2/users/:id
-```
+**Request**
 
 Property | Type | Description
 ---|---|---
@@ -217,6 +238,16 @@ Property | Type | Description
 `username` | string | if not set, this will contain the same value as the email
 `first_name` | string | can contains at most **50** characters
 `last_name` | string | can contains at most **50** characters
+
+**Response**
+
+Property | Type | Description
+---|---|---
+`updated_at` | date string (ISO 8601) |
+
+```endpoint
+PATCH /v2/users/:id
+```
 
 #### Example request
 
@@ -247,19 +278,31 @@ async function fn () {
 
 ```json
 {
-  "id": "9916c2ae-bdc1-46e7-8543-4934f8d8ebce",
-  "created_at": "2018-08-07T13:47:23.077Z",
   "updated_at": "2018-08-07T13:47:23.077Z"
 }
 ```
 
 ### Add roles to a user
 
+**Request**
+
 Adding roles to a user will give him more access to the API. You can add multiple roles to a user in the same request.
+
+Property | Type | Description
+---|---|---
+`(none)` | array of strings (UUID) | List of role ids
+
+**Response**
 
 Added roles can be rejected if one of the following condition is reached:
 - the role identifier doesn't exist
 - the user is "reserved", meaning that we can't change its roles via the API
+
+Property | Type | Description
+---|---|---
+`(none)` | array of objects (described below) |
+`id` | string (UUID) | Role identifier
+`name` | string | Role name
 
 ```endpoint
 PATCH /v2/users/:id/add-roles
@@ -301,16 +344,27 @@ async function fn () {
   "e0ce12f9-e74e-4cd3-aafa-a7f88190364a",
   "da37f8cd-e5c6-4caa-bd76-90b09087063f"
 ]
-}
 ```
 
 ### Remove roles to a user
 
+**Request**
+
 This will restrict the access to the API. You can remove multiple roles to a user in the same request.
+
+Property | Type | Description
+---|---|---
+`(none)` | array of strings (UUID) | List of role ids
+
+**Response**
 
 Removed roles can be rejected if one of the following condition is reached:
 - the role identifier doesn't exist
 - the user is "reserved", meaning that we can't change its roles via the API
+
+Property | Type | Description
+---|---|---
+`(none)` | array of strings (UUID) | Contains the ids of the removed roles
 
 ```endpoint
 PATCH /v2/users/:id/remove-roles
@@ -358,6 +412,13 @@ async function fn () {
 
 Enabling a user will allow him to have access the API (_if he was previously disabled_).
 
+**Response**
+
+Property | Type | Description
+---|---|---
+`active` | boolean | `true`
+`disabled_at` | date string (ISO 8601) | `null` since the user profile is now operational
+
 ```endpoint
 PATCH /v2/users/:id/enable
 ```
@@ -393,6 +454,13 @@ Disabling a user will prevent him from having access to the API. Besides, we won
 
 This is the **recommended** way to delete a user.
 
+**Response**
+
+Property | Type | Description
+---|---|---
+`active` | boolean | `false`
+`disabled_at` | date string (ISO 8601) |
+
 ```endpoint
 PATCH /v2/users/:id/disable
 ```
@@ -425,6 +493,12 @@ async function fn () {
 ### Remove a user
 
 Remove a user from our database. This is **non-recoverable** action!
+
+**Response**
+
+Property | Type | Description
+---|---|---
+`removed` | boolean | `true` if the resource was effectively erased from our database
 
 ```endpoint
 DELETE /v2/users/:id

@@ -56,6 +56,16 @@ async function fn () {
 
 Get infos about a specific permission.
 
+**Response**
+
+Property | Type | Description
+---|---|---
+`id` | string (UUID) | Permission identifier
+`name` | string |
+`created_by` | string (UUID) | User identifier of the creator
+`created_at` | date string (ISO 8601) |
+`updated_at` | date string (ISO 8601) |
+
 ```endpoint
 GET /v2/permissions/:id
 ```

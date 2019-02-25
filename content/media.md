@@ -56,6 +56,23 @@ async function fn () {
 
 Get infos about a specific media.
 
+**Response**
+
+Property | Type | Description
+---|---|---
+`id` | string (UUID) | Media identifier
+`name` | string |
+`description` | string |
+`type` | string | Can be one of the following enum: `file`, `image`, `audio` or `video`
+`mime` | string | The defined [Mime-Type](https://en.wikipedia.org/wiki/Media_type)
+`url` | string | Link to the uploaded content
+`width` | integer |
+`height` | integer |
+`sync_forced` | boolean | Tell the app if it needs to fetch this content during the synchronization process
+`created_by` | string (UUID) | User identifier of the creator
+`created_at` | date string (ISO 8601) |
+`updated_at` | date string (ISO 8601) |
+
 ```endpoint
 GET /v2/media/:id
 ```
@@ -155,11 +172,7 @@ async function fn () {
 
 ### Create a media
 
-Creates a new media.
-
-```endpoint
-POST /v2/media
-```
+**Request**
 
 Property | Type | Description
 ---|---|---
@@ -171,6 +184,17 @@ Property | Type | Description
 `width` | integer | expressed in pixel unit
 `height` | integer | expressed in pixel unit
 `sync_forced` | boolean | tell the app if the media must be synchronized before accessing to the content
+
+**Response**
+
+Property | Type | Description
+---|---|---
+`id` | string (UUID) | Media identifier
+`created_at` | date string (ISO 8601) |
+
+```endpoint
+POST /v2/media
+```
 
 #### Example request
 
@@ -211,13 +235,19 @@ async function fn () {
 
 ### Update a media
 
-Update a media.
+**Request**
+
+[Same properties](#create-a-media) used when creating a media.
+
+**Response**
+
+Property | Type | Description
+---|---|---
+`updated_at` | date string (ISO 8601) |
 
 ```endpoint
 PATCH /v2/media/:id
 ```
-
-[Same properties](#create-a-media) used when creating a media.
 
 #### Example request
 
@@ -256,6 +286,12 @@ async function fn () {
 ### Remove a media
 
 Remove a media from our database. This is **non-recoverable** action!
+
+**Response**
+
+Property | Type | Description
+---|---|---
+`removed` | boolean | `true` if the resource was effectively erased from our database
 
 ```endpoint
 DELETE /v2/media/:id

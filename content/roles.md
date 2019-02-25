@@ -56,6 +56,18 @@ async function fn () {
 
 Get infos about a specific role.
 
+**Response**
+
+Property | Type | Description
+---|---|---
+`id` | string (UUID) | Role identifier
+`name` | string |
+`description` | string |
+`is_reserved` | boolean | Specify if the role cannot be changed
+`created_by` | string (UUID) | User identifier of the creator
+`created_at` | date string (ISO 8601) |
+`updated_at` | date string (ISO 8601) |
+
 ```endpoint
 GET /v2/roles/:id
 ```
@@ -181,16 +193,23 @@ async function fn () {
 
 ### Create a role
 
-Creates a new role.
-
-```endpoint
-POST /v2/roles
-```
+**Request**
 
 Property | Type | Description
 ---|---|---
 `name` | string | (**required**) can contains up to **500** characters
 `description` | string | paragraphs describing the purpose of the role
+
+**Response**
+
+Property | Type | Description
+---|---|---
+`id` | string (UUID) | Role identifier
+`created_at` | date string (ISO 8601) |
+
+```endpoint
+POST /v2/roles
+```
 
 #### Example request
 
@@ -226,16 +245,22 @@ async function fn () {
 
 ### Update a role
 
-Update a role.
-
-```endpoint
-PATCH /v2/roles/:id
-```
+**Request**
 
 Property | Type | Description
 ---|---|---
 `name` | string | can contains up to **500** characters
 `description` | string | paragraphs describing the purpose of the role
+
+**Response**
+
+Property | Type | Description
+---|---|---
+`updated_at` | date string (ISO 8601) |
+
+```endpoint
+PATCH /v2/roles/:id
+```
 
 #### Example request
 
@@ -266,19 +291,31 @@ async function fn () {
 
 ```json
 {
-  "id": "4f0b7c26-0729-42be-8f6b-4cf7384170db",
-  "created_at": "2018-08-07T13:47:23.077Z",
   "updated_at": "2018-08-07T13:47:23.077Z"
 }
 ```
 
 ### Add permissions to a role
 
+**Request**
+
 Adding permissions to a role will allow users to gain more access to the API. You can add multiple permissions to a role in the same request.
+
+Property | Type | Description
+---|---|---
+`(none)` | array of strings (UUID) | List of permission ids
+
+**Response**
 
 Added permissions can be rejected if one of the following condition is reached:
 - the permission identifier doesn't exist
 - the role is "reserved", meaning that we can't change its permissions via the API
+
+Property | Type | Description
+---|---|---
+`(none)` | array of objects (described below) |
+`id` | string (UUID) | Permission identifier
+`name` | string | Permission name
 
 ```endpoint
 PATCH /v2/roles/:id/add-permissions
@@ -324,11 +361,23 @@ async function fn () {
 
 ### Remove permissions to a role
 
-This will restrict users which have the role from accessing the API. You can add remove multiple permissions to a role in the same request.
+**Request**
+
+This will restrict users which have the role from accessing the API. You can remove multiple permissions to a role in the same request.
+
+Property | Type | Description
+---|---|---
+`(none)` | array of strings (UUID) | List of permission ids
+
+**Response**
 
 Removed permissions can be rejected if one of the following condition is reached:
 - the permission identifier doesn't exist
 - the role is "reserved", meaning that we can't change its permissions via the API
+
+Property | Type | Description
+---|---|---
+`(none)` | array of strings (UUID) | Contains the ids of the removed permissions
 
 ```endpoint
 PATCH /v2/roles/:id/remove-permissions
@@ -375,6 +424,12 @@ async function fn () {
 ### Remove a role
 
 Remove a role from our database. This is **non-recoverable** action!
+
+**Response**
+
+Property | Type | Description
+---|---|---
+`removed` | boolean | `true` if the resource was effectively erased from our database
 
 ```endpoint
 DELETE /v2/roles/:id

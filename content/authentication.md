@@ -8,15 +8,23 @@ First, via a Cookie session, given after you've logged into the API. This method
 
 By default, sessions last no more than **a day** but can be extended to up to **5** days with the "extended session" option.
 
-```endpoint
-POST /v2/auth/login
-```
+**Request**
 
 Property | Type | Description
 ---|---|---
 `username` | string | (**required**) must contains at least **3** characters
 `password` | string | (**required**) must contains at least **6** characters
 `extended_session` | boolean | if `true` this will extend your session lifetime
+
+**Response**
+
+Property | Type | Description
+---|---|---
+`message` | string | A message indicating that you're now connected!
+
+```endpoint
+POST /v2/auth/login
+```
 
 #### Example request
 
@@ -64,6 +72,22 @@ const client = new Nomad({
 ### Retrieve your own user infos
 
 Once logged in, you can still retrieve your infos by using the introspective `me` route.
+
+**Response**
+
+Property | Type | Description
+---|---|---
+`id` | string (UUID) | Your user identifier
+`token` | string | This token can be used to make requests without explicit authentication
+`first_name` | string |
+`last_name` | string |
+`username` | string | By default, if you don't give a username, we'll use your email
+`email` | string |
+`roles` | array of objects (described below) | A list of roles given to your user (see properties below)
+`roles.id` | string (UUID) | The role identifier
+`roles.name` | string | The role name
+`created_at` | date string (ISO 8601) |
+`updated_at` | date string (ISO 8601) |
 
 ```endpoint
 POST /v2/auth/me

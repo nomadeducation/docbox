@@ -56,6 +56,16 @@ async function fn () {
 
 Get infos about a specific branch.
 
+**Response**
+
+Property | Type | Description
+---|---|---
+`id` | string (UUID) | Branch identifier
+`name` | string |
+`created_by` | string (UUID) | User identifier of the creator
+`created_at` | date string (ISO 8601) |
+`updated_at` | date string (ISO 8601) |
+
 ```endpoint
 GET /v2/branches/:id
 ```
@@ -134,15 +144,22 @@ async function fn () {
 
 ### Create a branch
 
-Creates a new branch.
-
-```endpoint
-POST /v2/branches
-```
+**Request**
 
 Property | Type | Description
 ---|---|---
 `name` | string | (**required**) must contains at least **1** character
+
+**Response**
+
+Property | Type | Description
+---|---|---
+`id` | string (UUID) | Branch identifier
+`created_at` | date string (ISO 8601) |
+
+```endpoint
+POST /v2/branches
+```
 
 #### Example request
 
@@ -177,15 +194,21 @@ async function fn () {
 
 ### Update a branch
 
-Update a branch.
-
-```endpoint
-PATCH /v2/branches/:id
-```
+**Request**
 
 Property | Type | Description
 ---|---|---
 `name` | string | (**required**) must contains at least **1** character
+
+**Response**
+
+Property | Type | Description
+---|---|---
+`updated_at` | date string (ISO 8601) |
+
+```endpoint
+PATCH /v2/branches/:id
+```
 
 #### Example request
 
@@ -215,8 +238,6 @@ async function fn () {
 
 ```json
 {
-  "id": "9916c2ae-bdc1-46e7-8543-4934f8d8ebce",
-  "created_at": "2018-08-07T13:47:23.077Z",
   "updated_at": "2018-08-07T13:47:23.077Z"
 }
 ```
@@ -224,6 +245,12 @@ async function fn () {
 ### Remove a branch
 
 Remove a branch from our database. This is **non-recoverable** action!
+
+**Response**
+
+Property | Type | Description
+---|---|---
+`removed` | boolean | `true` if the resource was effectively erased from our database
 
 ```endpoint
 DELETE /v2/branches/:id
