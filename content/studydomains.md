@@ -303,8 +303,7 @@ You can add multiple options to a study domain in the same request.
 
 Property | Type | Description
 ---|---|---
-`(none)` | array of objects (described below) | List of option names
-`name` | string | (**required**) must contains at least **1** character
+`(none)` | array of strings | List of option names that must contains at least **1** character
 
 **Response**
 
