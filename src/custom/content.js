@@ -29,6 +29,7 @@ module.exports =
     fs.readFileSync('./content/branches.md', 'utf8') + '\n' +
     fs.readFileSync('./content/studydomains.md', 'utf8') + '\n' +
     fs.readFileSync('./content/studychoices.md', 'utf8') + '\n' +
+    fs.readFileSync('./content/degrees.md', 'utf8') + '\n' +
     '# Content Service\n' +
     fs.readFileSync('./content/media.md', 'utf8') + '\n' +
     '🚧\n';
