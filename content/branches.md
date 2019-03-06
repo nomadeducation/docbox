@@ -217,7 +217,7 @@ curl -X PATCH https://api.nomadeducation.com/v2/branches/9916c2ae-bdc1-46e7-8543
 -H 'Content-Type: application/json' \
 -d @- <<'EOF'
 {
-  "username": "STAV"
+  "name": "STAV"
 }
 EOF
 ```
