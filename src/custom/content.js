@@ -33,6 +33,11 @@ module.exports =
     fs.readFileSync('./content/degreefields.md', 'utf8') + '\n' +
     fs.readFileSync('./content/exams.md', 'utf8') + '\n' +
     fs.readFileSync('./content/levelofeducations.md', 'utf8') + '\n' +
+    fs.readFileSync('./content/schools.md', 'utf8') + '\n' +
+    fs.readFileSync('./content/studymajors.md', 'utf8') + '\n' +
+    fs.readFileSync('./content/studyminors.md', 'utf8') + '\n' +
+    fs.readFileSync('./content/nextyearchoices.md', 'utf8') + '\n' +
+    fs.readFileSync('./content/memberlevels.md', 'utf8') + '\n' +
     '# Content Service\n' +
     fs.readFileSync('./content/media.md', 'utf8') + '\n' +
     '🚧\n';
