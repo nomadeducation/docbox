@@ -40,4 +40,5 @@ module.exports =
     fs.readFileSync('./content/memberlevels.md', 'utf8') + '\n' +
     '# Content Service\n' +
     fs.readFileSync('./content/media.md', 'utf8') + '\n' +
+    fs.readFileSync('./content/apps.md', 'utf8') + '\n' +
     '🚧\n';
