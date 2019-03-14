@@ -41,4 +41,5 @@ module.exports =
     '# Content Service\n' +
     fs.readFileSync('./content/media.md', 'utf8') + '\n' +
     fs.readFileSync('./content/apps.md', 'utf8') + '\n' +
+    fs.readFileSync('./content/posts.md', 'utf8') + '\n' +
     '🚧\n';
