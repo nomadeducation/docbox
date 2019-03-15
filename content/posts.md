@@ -60,7 +60,7 @@ Get infos about a specific post.
 
 Property | Type | Description
 ---|---|---
-`id` | string (UUID) | Exam identifier
+`id` | string (UUID) | Post identifier
 `type` | string | (_obosolete_) Specify the "type" of the content ("post" by default)
 `content_type` | string | Specify the purpose of the post
 `title` | string |
@@ -239,7 +239,7 @@ Property | Type | Description
 
 Property | Type | Description
 ---|---|---
-`id` | string (UUID) | Exam identifier
+`id` | string (UUID) | Post identifier
 `created_at` | date string (ISO 8601) |
 
 ```endpoint
