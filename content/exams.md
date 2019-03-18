@@ -142,7 +142,7 @@ async function fn () {
 ]
 ```
 
-### Create a exam
+### Create an exam
 
 **Request**
 
@@ -192,7 +192,7 @@ async function fn () {
 }
 ```
 
-### Update a degree
+### Update an exam
 
 **Request**
 
