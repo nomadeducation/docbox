@@ -39,7 +39,7 @@ HEAD /v2/categories/:id
 #### Example request
 
 ```curl
-curl -X HEAD https://api.nomadeducation.com/v2/categories/0a903590-0141-4246-82b0-865e5c87f024
+curl -X HEAD https://api.nomadeducation.com/v2/categories/5c3790e5-2ef0-41e2-9729-26bacd64ced6
 ```
 
 ```javascript
