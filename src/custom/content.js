@@ -43,4 +43,6 @@ module.exports =
     fs.readFileSync('./content/apps.md', 'utf8') + '\n' +
     fs.readFileSync('./content/posts.md', 'utf8') + '\n' +
     fs.readFileSync('./content/categories.md', 'utf8') + '\n' +
+    fs.readFileSync('./content/quizzes.md', 'utf8') + '\n' +
+    fs.readFileSync('./content/questions.md', 'utf8') + '\n' +
     '🚧\n';
