@@ -1,7 +1,5 @@
 ## Member levels
 
-TODO
-
 ### Metadata on member levels
 
 Retrieve metadata on member levels such as the current count.
