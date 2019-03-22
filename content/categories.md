@@ -303,10 +303,10 @@ Property | Type | Description
 `secondary_content` | string |
 `excerpt` | string |
 `external_link` | string |
-`editor_access` | boolean | (default: `true`)
-`text_to_speech` | boolean | (default: `false`)
-`text_to_speech` | boolean | (default: `false`)
+`editor_access` | boolean |
+`text_to_speech` | boolean |
 `see_all_button_text` | string | Text contained in the "See all" button
+`apply_filters_recursively` | boolean |
 `publish_state` | string | Allow the user to set the category as "published" (or back into "draft")
 
 **Response**
