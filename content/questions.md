@@ -253,7 +253,7 @@ Property | Type | Description
 `marking_type` | string |
 `allow_multiple_responses` | boolean |
 `tip` | string |
-`difficulty` | must be **between** 0 and 10
+`difficulty` | integer | must be **between** 0 and 10
 `value` | integer | must be **above** 0
 `valid_message` | string |
 `invalid_message` | string |
