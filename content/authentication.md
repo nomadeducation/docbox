@@ -90,7 +90,7 @@ Property | Type | Description
 `updated_at` | date string (ISO 8601) |
 
 ```endpoint
-POST /v2/auth/me
+GET /v2/auth/me
 ```
 
 #### Example request
