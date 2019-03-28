@@ -23,6 +23,7 @@ module.exports =
     fs.readFileSync('./content/filtering.md', 'utf8') + '\n' +
     '# Identity Service\n' +
     fs.readFileSync('./content/users.md', 'utf8') + '\n' +
+    fs.readFileSync('./content/members.md', 'utf8') + '\n' +
     fs.readFileSync('./content/roles.md', 'utf8') + '\n' +
     fs.readFileSync('./content/permissions.md', 'utf8') + '\n' +
     '# Business Service\n' +
