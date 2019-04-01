@@ -234,7 +234,7 @@ async function fn () {
 
 Property | Type | Description
 ---|---|---
-`content_type` | string | (**required**) must be one of the following terms: "course", "news", "subject" or "correction"
+`content_type` | string | (**required**) must be one of the following terms: "home", "menu", "course&quiz", "training", "apprating", "adventure", "exam", "result", "annals", "discipline", "chapter", "secondarymenu", "header", "share", "calendar", "about", "profile", "catalog", "partners", "news", "testing", "jobTests" or "jobList"
 `title` | string | (**required**) must contains at least **1** character
 `content` | string |
 `secondary_content` | string |
@@ -297,7 +297,7 @@ async function fn () {
 
 Property | Type | Description
 ---|---|---
-`content_type` | string | must be one of the following terms: "course", "news", "subject" or "correction"
+`content_type` | string | must be one of the following terms: "home", "menu", "course&quiz", "training", "apprating", "adventure", "exam", "result", "annals", "discipline", "chapter", "secondarymenu", "header", "share", "calendar", "about", "profile", "catalog", "partners", "news", "testing", "jobTests" or "jobList"
 `title` | string | must contains at least **1** character
 `content` | string |
 `secondary_content` | string |

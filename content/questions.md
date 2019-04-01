@@ -241,7 +241,6 @@ async function fn () {
 
 Property | Type | Description
 ---|---|---
-`content_type` | string | (**required**) must be "question"
 `title` | string | (**required**) must contains at least **1** character
 `content` | string |
 `secondary_content` | string |
@@ -277,7 +276,6 @@ curl -X POST https://api.nomadeducation.com/v2/questions \
 -H 'Content-Type: application/json' \
 -d @- <<'EOF'
 {
-  "content_type": "question",
   "title": "Question facile",
   "content": "Quel est la couleur du cheval blanc d'Henri IV ?",
   "explanation": "La réponse est dans la question ;)"
@@ -291,7 +289,6 @@ const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 
 async function fn () {
     const newResource = await client.questions.create({
-        content_type: "question",
         title: "Question facile",
         content: "Quel est la couleur du cheval blanc d'Henri IV ?",
         explanation: "La réponse est dans la question ;)"
@@ -315,7 +312,6 @@ async function fn () {
 
 Property | Type | Description
 ---|---|---
-`content_type` | string | must be one of the following terms: "course", "news", "subject" or "correction"
 `title` | string | must contains at least **1** character
 `content` | string |
 `secondary_content` | string |

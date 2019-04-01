@@ -296,7 +296,7 @@ async function fn () {
 
 Property | Type | Description
 ---|---|---
-`content_type` | string | must be one of the following terms: "course", "news", "subject" or "correction"
+`content_type` | string | must be one of the following terms: "exercise" or "secondary_exercise"
 `title` | string | must contains at least **1** character
 `content` | string |
 `secondary_content` | string |
