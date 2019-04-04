@@ -61,7 +61,7 @@ Get infos about a specific question.
 Property | Type | Description
 ---|---|---
 `id` | string (UUID) | Question identifier
-`type` | string | (_obosolete_) Specify the "type" of the content ("question" by default)
+`type` | string | (_obsolete_) Specify the "type" of the content ("question" by default)
 `content_type` | string | Specify the purpose of the question
 `title` | string |
 `name` | string | Should be the same value as `title`
@@ -76,19 +76,19 @@ Property | Type | Description
 `publish_state` | string | Specify the publication status. If the content is published, this should "lock" the content modification.
 `publish_start` | string |
 `publish_end` | string |
-`template` | string | (_obosolete_)
-`payload_schema` | string | (_obosolete_)
-`payload` | string | (_obosolete_)
-`parents_fixed_at` | string | (_obosolete_)
+`template` | string | (_obsolete_)
+`payload_schema` | string | (_obsolete_)
+`payload` | string | (_obsolete_)
+`parents_fixed_at` | string | (_obsolete_)
 `filtered_by_member_fields` | string | Tells if this content is filtered using member fields (e.g. its level of education, grades, etc)
-`filter_indexes` | string | (_obosolete_)
-`activated_filters` | string | (_obosolete_)
+`filter_indexes` | string | (_obsolete_)
+`activated_filters` | string | (_obsolete_)
 `index` | integer | Give the position of the question during a quiz
-`marking_type` | string | (_obosolete_)
+`marking_type` | string | (_obsolete_)
 `allow_multiple_responses` | boolean |
 `tip` | string | Text to give a hint of the possible good response(s)
 `difficulty` | integer | A scale that gives the theorical question difficulty
-`value` | integer | (_obosolete_)
+`value` | integer | (_obsolete_)
 `valid_message` | string | Message that is displayed when the response was **correct**
 `invalid_message` | string | Message that is displayed when the response was **incorrect**
 `explanation` | string |

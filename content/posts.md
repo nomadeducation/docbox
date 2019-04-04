@@ -61,7 +61,7 @@ Get infos about a specific post.
 Property | Type | Description
 ---|---|---
 `id` | string (UUID) | Post identifier
-`type` | string | (_obosolete_) Specify the "type" of the content ("post" by default)
+`type` | string | (_obsolete_) Specify the "type" of the content ("post" by default)
 `content_type` | string | Specify the purpose of the post
 `title` | string |
 `name` | string | Should be the same value as `title`
@@ -76,13 +76,13 @@ Property | Type | Description
 `publish_state` | string | Specify the publication status. If the content is published, this should "lock" the content modification.
 `publish_start` | string |
 `publish_end` | string |
-`template` | string | (_obosolete_)
-`payload_schema` | string | (_obosolete_)
-`payload` | string | (_obosolete_)
-`parents_fixed_at` | string | (_obosolete_)
+`template` | string | (_obsolete_)
+`payload_schema` | string | (_obsolete_)
+`payload` | string | (_obsolete_)
+`parents_fixed_at` | string | (_obsolete_)
 `filtered_by_member_fields` | string | Tells if this content is filtered using member fields (e.g. its level of education, grades, etc)
-`filter_indexes` | string | (_obosolete_)
-`activated_filters` | string | (_obosolete_)
+`filter_indexes` | string | (_obsolete_)
+`activated_filters` | string | (_obsolete_)
 `created_by` | string (UUID) | User identifier of the creator
 `created_at` | date string (ISO 8601) |
 `updated_at` | date string (ISO 8601) |
