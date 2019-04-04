@@ -39,7 +39,20 @@ module.exports =
     fs.readFileSync('./content/studyminors.md', 'utf8') + '\n' +
     fs.readFileSync('./content/nextyearchoices.md', 'utf8') + '\n' +
     fs.readFileSync('./content/memberlevels.md', 'utf8') + '\n' +
+    fs.readFileSync('./content/commercialinterests.md', 'utf8') + '\n' +
+    fs.readFileSync('./content/lv1s.md', 'utf8') + '\n' +
+    fs.readFileSync('./content/optionalsubjects.md', 'utf8') + '\n' +
+    fs.readFileSync('./content/specialties.md', 'utf8') + '\n' +
     fs.readFileSync('./content/profilings.md', 'utf8') + '\n' +
+    fs.readFileSync('./content/sponsors.md', 'utf8') + '\n' +
+    fs.readFileSync('./content/sponsorforms.md', 'utf8') + '\n' +
+    fs.readFileSync('./content/sponsorinfos.md', 'utf8') + '\n' +
+    fs.readFileSync('./content/campaigns.md', 'utf8') + '\n' +
+    fs.readFileSync('./content/notifications.md', 'utf8') + '\n' +
+    fs.readFileSync('./content/events.md', 'utf8') + '\n' +
+    fs.readFileSync('./content/forms.md', 'utf8') + '\n' +
+    fs.readFileSync('./content/jobs.md', 'utf8') + '\n' +
+    fs.readFileSync('./content/leads.md', 'utf8') + '\n' +
     '# Content Service\n' +
     fs.readFileSync('./content/media.md', 'utf8') + '\n' +
     fs.readFileSync('./content/apps.md', 'utf8') + '\n' +
