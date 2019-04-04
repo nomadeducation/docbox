@@ -158,8 +158,8 @@ const client = new Nomad({api_key: "4fb11e3214d6e15c27a1a2ea1b7c23820c8bada4"});
 async function fn () {
     const offset = 42;
     const limit = 2;
-    const exams = await client.posts.list(offset, limit);
-    console.log(exams);
+    const posts = await client.posts.list(offset, limit);
+    console.log(posts);
 }
 ```
 
