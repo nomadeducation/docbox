@@ -229,13 +229,7 @@ Property | Type | Description
 `send_date` | date | (**required**) Date when the notification will be pushed
 `payload` | object | Contains most of the extra data such as the deep link or an URL
 `badge` | boolean | This will display a red dot on the app icon
-`priority` | string | Does the notification should wake the mobile?
 `ready_for_push` | boolean |
-`is_sent` | boolean |
-`sent_date` | date | Real date when the notification was pushed by our service
-`batch_infos` | array of objects | (_internal_)
-`batch_stats` | array of objects | (_internal_)
-`filtered_by_member_fields` | boolean |
 
 **Response**
 
@@ -299,12 +293,7 @@ Property | Type | Description
 `send_date` | date |
 `payload` | object |
 `badge` | boolean |
-`priority` | string |
 `ready_for_push` | boolean |
-`is_sent` | boolean |
-`sent_date` | date |
-`batch_infos` | array of objects | (_internal_)
-`batch_stats` | array of objects | (_internal_)
 
 **Response**
 
