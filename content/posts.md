@@ -74,8 +74,8 @@ Property | Type | Description
 `editor_access` | string | Tells whether the editor (a.k.a. teacher) can edit this content
 `text_to_speech` | string | Tells if this content can be used against the "Text-to-Speech" feat. on mobile apps
 `publish_state` | string | Specify the publication status. If the content is published, this should "lock" the content modification.
-`publish_start` | string |
-`publish_end` | string |
+`publish_start` | string | (_obsolete_)
+`publish_end` | string | (_obsolete_)
 `template` | string | (_obsolete_)
 `payload_schema` | string | (_obsolete_)
 `payload` | string | (_obsolete_)
