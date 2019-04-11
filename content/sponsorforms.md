@@ -290,7 +290,6 @@ async function fn () {
 
 Property | Type | Description
 ---|---|---
-`content_type` | string | (**required**) must be one of the following terms: "course", "news", "subject" or "correction"
 `title` | string | (**required**) must contains at least **1** character
 `content` | string |
 `secondary_content` | string |
@@ -350,7 +349,6 @@ async function fn () {
 
 Property | Type | Description
 ---|---|---
-`content_type` | string | must be one of the following terms: "course", "news", "subject" or "correction"
 `title` | string | must contains at least **1** character
 `content` | string |
 `secondary_content` | string |
