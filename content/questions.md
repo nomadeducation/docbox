@@ -243,19 +243,13 @@ Property | Type | Description
 ---|---|---
 `title` | string | (**required**) must contains at least **1** character
 `content` | string |
-`secondary_content` | string |
 `excerpt` | string |
 `external_link` | string |
 `editor_access` | boolean | (default: `true`)
 `text_to_speech` | boolean | (default: `false`)
 `index` | integer | must be **above** 0
-`marking_type` | string |
 `allow_multiple_responses` | boolean |
-`tip` | string |
 `difficulty` | integer | must be **between** 0 and 10
-`value` | integer | must be **above** 0
-`valid_message` | string |
-`invalid_message` | string |
 `explanation` | string |
 
 **Response**
@@ -314,20 +308,14 @@ Property | Type | Description
 ---|---|---
 `title` | string | must contains at least **1** character
 `content` | string |
-`secondary_content` | string |
 `excerpt` | string |
 `external_link` | string |
 `editor_access` | boolean | (default: `true`)
 `text_to_speech` | boolean | (default: `false`)
-`text_to_speech` | boolean | (default: `false`)
 `index` | integer | must be **above** 0
-`marking_type` | string |
 `allow_multiple_responses` | boolean |
-`tip` | string |
-`difficulty` | must be **between** 0 and 10
-`value` | integer | must be **above** 0
-`valid_message` | string |
-`invalid_message` | string |
+`difficulty` | integer | must be **between** 0 and 10
+`explanation` | string |
 `publish_state` | string | Allow the user to set the question as "published" (or back into "draft")
 
 **Response**
