@@ -84,6 +84,12 @@ Property | Type | Description
 `filter_indexes` | string | (_obsolete_)
 `activated_filters` | string | (_obsolete_)
 `display_result_after_each_question` | boolean |
+`results_configuration`| array of objects | Array of `result_config`
+`result_config` | object |
+`result_config.range_min` | number |
+`result_config.range_max` | number |
+`result_config.name` | string | must contains at least **1** character
+`result_config.message` | string |
 `apply_filters_recursively` | boolean | (_obsolete_)
 `created_by` | string (UUID) | User identifier of the creator
 `created_at` | date string (ISO 8601) |
@@ -134,6 +140,32 @@ async function fn () {
   "filter_indexes": "{}",
   "activated_filters": 0,
   "display_result_after_each_question": false,
+  "results_configuration": [
+    {
+        "range_min": 0,
+        "range_max": 20,
+        "name": "Moins de 20",
+        "message": "<p>Vous n'êtes absolument pas fait pour ce métier. Mais alors, pas du tout...<br></p>"
+    },
+    {
+        "range_min": 20,
+        "range_max": 50,
+        "name": "20 - 50",
+        "message": "<p>Si vous avez la volonté, essayez. Mais ce n'est pas gagné d'avance...<br></p>"
+    },
+    {
+        "range_min": 50,
+        "range_max": 75,
+        "name": "50 - 75",
+        "message": "<p>Ce poste peut être un choix pertinent pour vous.<br></p>"
+    },
+    {
+        "range_min": 75,
+        "range_max": 100,
+        "name": "75 - 100",
+        "message": "<p>Votre profil colle parfaitement. Ce poste est bien fait pour vous!<br></p>"
+    }
+  ],
   "apply_filters_recursively": false,
   "created_at": "2018-09-14T07:33:45.903Z",
   "created_by": "4ab4d646-1837-40b3-a64c-2658ad94624f",
@@ -193,6 +225,32 @@ async function fn () {
     "filter_indexes": "{}",
     "activated_filters": 0,
     "display_result_after_each_question": false,
+    "results_configuration": [
+      {
+          "range_min": 0,
+          "range_max": 20,
+          "name": "Moins de 20",
+          "message": "<p>Vous n'êtes absolument pas fait pour ce métier. Mais alors, pas du tout...<br></p>"
+      },
+      {
+          "range_min": 20,
+          "range_max": 50,
+          "name": "20 - 50",
+          "message": "<p>Si vous avez la volonté, essayez. Mais ce n'est pas gagné d'avance...<br></p>"
+      },
+      {
+          "range_min": 50,
+          "range_max": 75,
+          "name": "50 - 75",
+          "message": "<p>Ce poste peut être un choix pertinent pour vous.<br></p>"
+      },
+      {
+          "range_min": 75,
+          "range_max": 100,
+          "name": "75 - 100",
+          "message": "<p>Votre profil colle parfaitement. Ce poste est bien fait pour vous!<br></p>"
+      }
+    ],
     "apply_filters_recursively": false,
     "created_at": "2018-09-14T07:33:45.903Z",
     "created_by": "4ab4d646-1837-40b3-a64c-2658ad94624f",
@@ -242,6 +300,12 @@ Property | Type | Description
 `editor_access` | boolean | (default: `true`)
 `text_to_speech` | boolean | (default: `false`)
 `display_result_after_each_question` | boolean | (default: `true`)
+`results_configuration`| array of objects | Array of `result_config`
+`result_config` | object |
+`result_config.range_min` | number |
+`result_config.range_max` | number |
+`result_config.name` | string | must contains at least **1** character
+`result_config.message` | string |
 `apply_filters_recursively` | boolean | (default: `false`) Make sure that children also have the same member filters
 
 **Response**
@@ -306,6 +370,12 @@ Property | Type | Description
 `text_to_speech` | boolean | (default: `false`)
 `text_to_speech` | boolean | (default: `false`)
 `display_result_after_each_question` | boolean | (default: `true`)
+`results_configuration`| array of objects | Array of `result_config`
+`result_config` | object |
+`result_config.range_min` | number |
+`result_config.range_max` | number |
+`result_config.name` | string | must contains at least **1** character
+`result_config.message` | string |
 `publish_state` | string | Allow the user to set the quiz as "published" (or back into "draft")
 
 **Response**
