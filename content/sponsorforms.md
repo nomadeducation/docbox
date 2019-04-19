@@ -291,12 +291,6 @@ async function fn () {
 Property | Type | Description
 ---|---|---
 `title` | string | (**required**) must contains at least **1** character
-`content` | string |
-`secondary_content` | string |
-`excerpt` | string |
-`external_link` | string |
-`editor_access` | boolean | (default: `true`)
-`text_to_speech` | boolean | (default: `false`)
 `form` | object | (default: `{}`)
 
 **Response**
@@ -350,12 +344,6 @@ async function fn () {
 Property | Type | Description
 ---|---|---
 `title` | string | must contains at least **1** character
-`content` | string |
-`secondary_content` | string |
-`excerpt` | string |
-`external_link` | string |
-`editor_access` | boolean | (default: `true`)
-`text_to_speech` | boolean | (default: `false`)
 `form` | object |
 `publish_state` | string | Allow the user to set the sponsor form as "published" (or back into "draft")
 
