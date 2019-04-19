@@ -293,12 +293,7 @@ Property | Type | Description
 ---|---|---
 `content_type` | string | (**required**) must be one of the following terms: "exercise" or "secondary_exercise"
 `title` | string | (**required**) must contains at least **1** character
-`content` | string |
-`secondary_content` | string |
-`excerpt` | string |
-`external_link` | string |
 `editor_access` | boolean | (default: `true`)
-`text_to_speech` | boolean | (default: `false`)
 `display_result_after_each_question` | boolean | (default: `true`)
 `results_configuration`| array of objects | Array of `result_config`
 `result_config` | object |
@@ -362,13 +357,7 @@ Property | Type | Description
 ---|---|---
 `content_type` | string | must be one of the following terms: "exercise" or "secondary_exercise"
 `title` | string | must contains at least **1** character
-`content` | string |
-`secondary_content` | string |
-`excerpt` | string |
-`external_link` | string |
 `editor_access` | boolean | (default: `true`)
-`text_to_speech` | boolean | (default: `false`)
-`text_to_speech` | boolean | (default: `false`)
 `display_result_after_each_question` | boolean | (default: `true`)
 `results_configuration`| array of objects | Array of `result_config`
 `result_config` | object |
