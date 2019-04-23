@@ -128,6 +128,32 @@ async function fn () {
   "slug": "Question-1",
   "allow_multiple_responses": false,
   "content": "<p>Qui est Tierno Monénembo ?<br></p>",
+  "choices": [
+      {
+          "content": "Un poète malien",
+          "weight": 0,
+          "explanation": "",
+          "explanationMediumId": null
+      },
+      {
+          "content": "Un cinéaste gabonais",
+          "weight": 0,
+          "explanation": "",
+          "explanationMediumId": null
+      },
+      {
+          "content": "Un homme politique camerounais",
+          "weight": 0,
+          "explanation": "",
+          "explanationMediumId": null
+      },
+      {
+          "content": "Un écrivain guinéen",
+          "weight": 0,
+          "explanation": "",
+          "explanationMediumId": null
+      }
+  ],
   "explanation": "<p>Tierno Ménembo est un auteur francophone, né en 1947 à Poredaka, en Guinée.</p>",
   "secondary_content": "",
   "excerpt": "",
@@ -187,6 +213,32 @@ async function fn () {
     "slug": "Question-1",
     "allow_multiple_responses": false,
     "content": "<p>Qui est Tierno Monénembo ?<br></p>",
+    "choices": [
+        {
+            "content": "Un poète malien",
+            "weight": 0,
+            "explanation": "",
+            "explanationMediumId": null
+        },
+        {
+            "content": "Un cinéaste gabonais",
+            "weight": 0,
+            "explanation": "",
+            "explanationMediumId": null
+        },
+        {
+            "content": "Un homme politique camerounais",
+            "weight": 0,
+            "explanation": "",
+            "explanationMediumId": null
+        },
+        {
+            "content": "Un écrivain guinéen",
+            "weight": 0,
+            "explanation": "",
+            "explanationMediumId": null
+        }
+    ],
     "explanation": "<p>Tierno Ménembo est un auteur francophone, né en 1947 à Poredaka, en Guinée.</p>",
     "secondary_content": "",
     "excerpt": "",
@@ -214,6 +266,32 @@ async function fn () {
     "slug": "Question-2",
     "allow_multiple_responses": false,
     "content": "<p>Quels sont les sujets traités par le romancier dans ses romans ?<br></p>",
+    "choices": [
+        {
+            "content": "L’amour",
+            "weight": 0,
+            "explanation": "",
+            "explanationMediumId": null
+        },
+        {
+            "content": "Le génocide – la guerre",
+            "weight": 100,
+            "explanation": "",
+            "explanationMediumId": null
+        },
+        {
+            "content": "La polygamie",
+            "weight": 0,
+            "explanation": "",
+            "explanationMediumId": null
+        },
+        {
+            "content": "Le terrorisme",
+            "weight": 100,
+            "explanation": "",
+            "explanationMediumId": null
+        }
+    ],
     "explanation": "<p>Observateur attentif de la société en général et de l’Afrique contemporaine en particulier, l'auteur s'attache à dépeindre les maux qui accablent les sociétés actuelles.</p>",
     "secondary_content": "",
     "excerpt": "",
@@ -251,6 +329,12 @@ Property | Type | Description
 `allow_multiple_responses` | boolean |
 `difficulty` | integer | must be **between** 0 and 10
 `explanation` | string |
+`choices` | array of objects | Array of `choice`
+`choice` | object |
+`choice.content`| string |
+`choice.weight` | number |
+`choice.explanation` | string | can be ""
+`choice.explanationMediumId` | string | can be null
 
 **Response**
 
@@ -317,6 +401,12 @@ Property | Type | Description
 `difficulty` | integer | must be **between** 0 and 10
 `explanation` | string |
 `publish_state` | string | Allow the user to set the question as "published" (or back into "draft")
+`choices` | array of objects | Array of `choice`
+`choice` | object |
+`choice.content`| string |
+`choice.weight` | number |
+`choice.explanation` | string | can be ""
+`choice.explanationMediumId` | string | can be null
 
 **Response**
 
